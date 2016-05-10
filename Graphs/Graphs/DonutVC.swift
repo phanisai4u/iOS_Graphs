@@ -15,7 +15,8 @@ class DonutVC: UIViewController {
         super.viewDidLoad()
 
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+        let unitsSold = [20.0, 4.0, 6.0, 30.0, 12.0, 16.0]
+        donutView.delegate = self
         setChart(months, values: unitsSold)
     }
 
@@ -35,7 +36,8 @@ class DonutVC: UIViewController {
         
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Units Sold")
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
-        donutView.data = pieChartData
+        pieChartDataSet.sliceSpace = 2
+        pieChartDataSet.selectionShift = 5
         
         var colors: [UIColor] = []
         
@@ -49,6 +51,10 @@ class DonutVC: UIViewController {
         }
         
         pieChartDataSet.colors = colors
+        donutView.data = pieChartData
+
+        donutView.animate(xAxisDuration: 4, easingOption: .EaseInOutCubic)
+
         
         }
 
@@ -56,4 +62,17 @@ class DonutVC: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+}
+extension DonutVC:ChartViewDelegate{
+    func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight){
+        print("chartValueSelected")
+    }
+    
+    // Called when nothing has been selected or an "un-select" has been made.
+    func chartValueNothingSelected(chartView: ChartViewBase){
+        print("chartValueNothingSelected")
+    }
+    
+    
+    
 }
