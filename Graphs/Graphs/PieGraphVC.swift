@@ -16,6 +16,7 @@ class PieGraphVC: UIViewController {
 
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
         let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+        pieChartView.delegate = self
         pieChartView.drawHoleEnabled = false
         setChart(months, values: unitsSold)
     }
@@ -34,8 +35,12 @@ class PieGraphVC: UIViewController {
         }
         
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Units Sold")
+        pieChartDataSet.sliceSpace = 2
+        pieChartDataSet.selectionShift = 5
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
-        pieChartView.data = pieChartData
+        //pieChartData.highlightEnabled = false
+        //pieChartData.
+    
         
         var colors: [UIColor] = []
         
@@ -49,12 +54,16 @@ class PieGraphVC: UIViewController {
         }
         
         pieChartDataSet.colors = colors
+        pieChartView.data = pieChartData
+//        pieChartView.usePercentValuesEnabled = true
+//        pieChartView.drawSliceTextEnabled = true
+//        pieChartView.drawSlicesUnderHoleEnabled = true
+//        pieChartView.drawHoleEnabled = true
+        pieChartView.vi
+        pieChartView.animate(xAxisDuration: 4, easingOption: ChartEasingOption.EaseInBounce)
+
         
-//        
-//        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Units Sold")
-//        let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
-//        lineChartView.data = lineChartData
-//        
+
     }
 
     @IBAction func CloseButtonClick(sender: AnyObject) {
@@ -62,4 +71,17 @@ class PieGraphVC: UIViewController {
     }
 
 
+}
+extension PieGraphVC:ChartViewDelegate{
+     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight){
+        print("chartValueSelected")
+    }
+    
+    // Called when nothing has been selected or an "un-select" has been made.
+     func chartValueNothingSelected(chartView: ChartViewBase){
+        print("chartValueNothingSelected")
+    }
+    
+   
+  
 }

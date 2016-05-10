@@ -33,23 +33,7 @@ class LineGraphVC: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-//        let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Units Sold")
-//        let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
-//        pieChartView.data = pieChartData
-//        
-//        var colors: [UIColor] = []
-//        
-//        for i in 0..<dataPoints.count {
-//            let red = Double(arc4random_uniform(256))
-//            let green = Double(arc4random_uniform(256))
-//            let blue = Double(arc4random_uniform(256))
-//            
-//            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-//            colors.append(color)
-//        }
-//        
-//        pieChartDataSet.colors = colors
-        
+
         
         let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Units Sold")
         let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
