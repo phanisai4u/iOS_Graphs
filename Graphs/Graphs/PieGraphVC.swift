@@ -59,7 +59,6 @@ class PieGraphVC: UIViewController {
 //        pieChartView.drawSliceTextEnabled = true
 //        pieChartView.drawSlicesUnderHoleEnabled = true
 //        pieChartView.drawHoleEnabled = true
-        pieChartView.vi
         pieChartView.animate(xAxisDuration: 4, easingOption: ChartEasingOption.EaseInBounce)
 
         
