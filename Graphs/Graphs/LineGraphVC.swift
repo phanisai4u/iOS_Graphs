@@ -14,8 +14,8 @@ class LineGraphVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-        let unitsSold = [20.0, 4.0, 6.0, 30.0, 12.0, 16.0]
+        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","July","Aug"]
+        let unitsSold = [20.0, 4.0, 6.0, 30.0, 12.0, 16.0,50.0,30.0]
         
         setChart(months, values: unitsSold)
     }
@@ -52,6 +52,11 @@ class LineGraphVC: UIViewController {
         lineChartView.xAxis.labelPosition = .Bottom
         lineChartView.xAxis.labelRotationAngle = 45
         lineChartView.xAxis.drawGridLinesEnabled = false
+        lineChartView.xAxis.drawAxisLineEnabled = false
+
+        
+        //lineChartView.xAxis.axisMinValue = 50
+        lineChartView.xAxis.axisMaxValue = 300
         lineChartView.leftAxis.drawGridLinesEnabled = false
         lineChartView.xAxis.spaceBetweenLabels = 10
         lineChartView.scaleXEnabled = true
@@ -62,10 +67,12 @@ class LineGraphVC: UIViewController {
         lineChartView.leftAxis.zeroLineWidth = 2
         lineChartView.rightAxis.enabled = false
         lineChartView.leftAxis.labelPosition = .OutsideChart
+        lineChartView.xAxis.avoidFirstLastClippingEnabled = false
+
         
-        
+        lineChartView.animate(xAxisDuration: 4, easingOption: .EaseOutBounce)
         lineChartView.data = lineChartData
-        lineChartView.animate(xAxisDuration: 4, easingOption: .Linear)
+
 
         
     }

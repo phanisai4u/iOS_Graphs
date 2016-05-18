@@ -15,7 +15,7 @@ class PieGraphVC: UIViewController {
         super.viewDidLoad()
 
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+        let unitsSold = [20.0, 0.15, 6.0, 0.25, 12.0, 16.0]
         pieChartView.delegate = self
         pieChartView.drawHoleEnabled = false
         setChart(months, values: unitsSold)
@@ -35,12 +35,19 @@ class PieGraphVC: UIViewController {
         }
         
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Units Sold")
-        pieChartDataSet.sliceSpace = 2
+        pieChartDataSet.sliceSpace = 0
         pieChartDataSet.selectionShift = 5
+        pieChartDataSet.drawValuesEnabled = true
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
+
         //pieChartData.highlightEnabled = false
-        //pieChartData.
-    
+        
+        
+      pieChartView.legend.position = .LeftOfChart
+      pieChartView.legend.direction = .RightToLeft
+      pieChartView.legend.form = .Circle
+        
+       // pieChartView.labelFont = UIFont.systemFontOfSize(15)
         
         var colors: [UIColor] = []
         
@@ -74,6 +81,8 @@ class PieGraphVC: UIViewController {
 extension PieGraphVC:ChartViewDelegate{
      func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight){
         print("chartValueSelected")
+        pieChartView.dataSetIndexForIndex(dataSetIndex)
+        
     }
     
     // Called when nothing has been selected or an "un-select" has been made.
