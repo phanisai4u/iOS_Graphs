@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var chartTypeTableView: UITableView!
-    var chartNames = ["LineGraph","PieGraph","DonutGraph"]
+    var chartNames = ["LineGraph","PieGraph","DonutGraph","BarGraph"]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -49,8 +49,10 @@ extension ViewController : UITableViewDelegate{
              vc = self.storyboard?.instantiateViewControllerWithIdentifier("LineGraphVC_ID") as! LineGraphVC
         }else if indexPath.row == 1 {
              vc = self.storyboard?.instantiateViewControllerWithIdentifier("PieGraphVC_ID") as! PieGraphVC
-        }else{
+        }else  if indexPath.row == 2{
             vc = self.storyboard?.instantiateViewControllerWithIdentifier("DonutVC_ID") as! DonutVC
+        }else{
+             vc = self.storyboard?.instantiateViewControllerWithIdentifier("BarchartVC_ID") as! BarchartVC
         }
         presentViewController(vc, animated: true, completion: nil)
     }
