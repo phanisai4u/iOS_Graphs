@@ -11,15 +11,13 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var chartTypeTableView: UITableView!
-    var chartNames = ["LineGraph","PieGraph","DonutGraph","BarGraph"]
+    var chartNames = ["LineGraph","PieGraph","DonutGraph","BarGraph","BubblecGraph"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
@@ -51,8 +49,10 @@ extension ViewController : UITableViewDelegate{
              vc = self.storyboard?.instantiateViewControllerWithIdentifier("PieGraphVC_ID") as! PieGraphVC
         }else  if indexPath.row == 2{
             vc = self.storyboard?.instantiateViewControllerWithIdentifier("DonutVC_ID") as! DonutVC
-        }else{
+        }else if indexPath.row == 3{
              vc = self.storyboard?.instantiateViewControllerWithIdentifier("BarchartVC_ID") as! BarchartVC
+        } else{
+            vc = self.storyboard?.instantiateViewControllerWithIdentifier("BabbleChartVC_ID") as! BabbleChartVC
         }
         presentViewController(vc, animated: true, completion: nil)
     }

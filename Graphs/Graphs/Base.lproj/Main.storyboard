@@ -229,5 +229,49 @@
             </objects>
             <point key="canvasLocation" x="409" y="77"/>
         </scene>
+        <!--Babble ChartVC-->
+        <scene sceneID="o0Y-0m-WII">
+            <objects>
+                <viewController storyboardIdentifier="BabbleChartVC_ID" id="x6z-MM-Vyy" customClass="BabbleChartVC" customModule="Graphs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Brj-kT-R27"/>
+                        <viewControllerLayoutGuide type="bottom" id="gif-jd-4fY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FJm-ly-u2r">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lI6-Hg-w4T">
+                                <rect key="frame" x="40" y="20" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="CloseButtonClick:" destination="x6z-MM-Vyy" eventType="touchUpInside" id="37f-n8-SI3"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBm-BF-3xV" customClass="BubbleChartView" customModule="Charts">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="cZA-JE-Gnh"/>
+                                    <constraint firstAttribute="height" constant="300" id="vrt-CB-6BD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fBm-BF-3xV" firstAttribute="centerX" secondItem="FJm-ly-u2r" secondAttribute="centerX" id="4S5-TV-oi6"/>
+                            <constraint firstItem="fBm-BF-3xV" firstAttribute="centerY" secondItem="FJm-ly-u2r" secondAttribute="centerY" id="RZi-8S-7Xu"/>
+                            <constraint firstItem="lI6-Hg-w4T" firstAttribute="leading" secondItem="FJm-ly-u2r" secondAttribute="leadingMargin" constant="20" id="cPs-w5-ggK"/>
+                            <constraint firstItem="lI6-Hg-w4T" firstAttribute="top" secondItem="FJm-ly-u2r" secondAttribute="topMargin" constant="20" id="pOj-cn-Udb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bubbleChartView" destination="fBm-BF-3xV" id="r5i-wa-bnJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sB6-Zu-8E5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="409" y="77"/>
+        </scene>
     </scenes>
 </document>

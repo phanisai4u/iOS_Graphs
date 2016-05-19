@@ -36,6 +36,7 @@ class BarchartVC: UIViewController {
         
         let barChartDataSet = BarChartDataSet(yVals: dataEntries, label: "Units Sold")
         let barChartData = BarChartData(xVals: dataPoints, dataSet: barChartDataSet)
+        
        
         barView.xAxis.labelPosition = .Bottom
         barView.xAxis.labelRotationAngle = 45

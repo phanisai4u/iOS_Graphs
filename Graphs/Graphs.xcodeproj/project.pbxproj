@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E91DBFC71CEC676B003243E4 /* BarchartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91DBFC61CEC676B003243E4 /* BarchartVC.swift */; };
+		E9AA99271CECA0B400B3C780 /* BabbleChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA99261CECA0B400B3C780 /* BabbleChartVC.swift */; };
 		E9ED270A1CD0E1030099B297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED27091CD0E1030099B297 /* AppDelegate.swift */; };
 		E9ED270C1CD0E1030099B297 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ED270B1CD0E1030099B297 /* ViewController.swift */; };
 		E9ED270F1CD0E1030099B297 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9ED270D1CD0E1030099B297 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		8F01738F82AB3F9F860C3D3C /* Pods-Graphs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Graphs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Graphs/Pods-Graphs.release.xcconfig"; sourceTree = "<group>"; };
 		A51BDF02BA29B33890D95AD0 /* Pods-Graphs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Graphs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Graphs/Pods-Graphs.debug.xcconfig"; sourceTree = "<group>"; };
 		E91DBFC61CEC676B003243E4 /* BarchartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarchartVC.swift; sourceTree = "<group>"; };
+		E9AA99261CECA0B400B3C780 /* BabbleChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BabbleChartVC.swift; sourceTree = "<group>"; };
 		E9ED27061CD0E1030099B297 /* Graphs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graphs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9ED27091CD0E1030099B297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9ED270B1CD0E1030099B297 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				E9ED273B1CD0E4700099B297 /* DonutVC.swift */,
 				E91DBFC61CEC676B003243E4 /* BarchartVC.swift */,
 				E9ED270D1CD0E1030099B297 /* Main.storyboard */,
+				E9AA99261CECA0B400B3C780 /* BabbleChartVC.swift */,
 				E9ED27101CD0E1030099B297 /* Assets.xcassets */,
 				E9ED27121CD0E1030099B297 /* LaunchScreen.storyboard */,
 				E9ED27151CD0E1030099B297 /* Info.plist */,
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9ED273C1CD0E4700099B297 /* DonutVC.swift in Sources */,
+				E9AA99271CECA0B400B3C780 /* BabbleChartVC.swift in Sources */,
 				E91DBFC71CEC676B003243E4 /* BarchartVC.swift in Sources */,
 				E9ED273A1CD0E4290099B297 /* PieGraphVC.swift in Sources */,
 				E9ED270C1CD0E1030099B297 /* ViewController.swift in Sources */,
