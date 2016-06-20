@@ -35,7 +35,7 @@ class WaterFallChartVC: UIViewController {
         for i in 0..<dataPoints.count {
             
             
-            let mult = Double(dataPoints.count + 1)
+            let mult = Double(20 + 1)
             let val =  Double(arc4random_uniform(40)) + mult
             let high =  Double(arc4random_uniform(9)) + 8.0
             let low = Double(arc4random_uniform(9)) + 8.0
@@ -58,24 +58,24 @@ class WaterFallChartVC: UIViewController {
         let chartData = CandleChartData(xVals: dataPoints, dataSet: chartDataSet)
         
         
-        chartView.xAxis.labelPosition = .Bottom
-        chartView.xAxis.labelRotationAngle = 45
-        chartView.xAxis.drawGridLinesEnabled = false
-        chartView.xAxis.drawAxisLineEnabled = false
+//        chartView.xAxis.labelPosition = .Bottom
+//        chartView.xAxis.labelRotationAngle = 45
+//        chartView.xAxis.drawGridLinesEnabled = false
+//        chartView.xAxis.drawAxisLineEnabled = false
+//        
+//        
+//        chartView.xAxis.axisMaxValue = 300
+//        chartView.leftAxis.drawGridLinesEnabled = false
+//        chartView.xAxis.spaceBetweenLabels = 10
+//        chartView.scaleXEnabled = true
+//        chartView.scaleYEnabled = false
         
         
-        chartView.xAxis.axisMaxValue = 300
-        chartView.leftAxis.drawGridLinesEnabled = false
-        chartView.xAxis.spaceBetweenLabels = 10
-        chartView.scaleXEnabled = true
-        chartView.scaleYEnabled = false
-        
-        
-        chartView.leftAxis.zeroLineColor = UIColor.blueColor()
-        chartView.leftAxis.zeroLineWidth = 2
-        chartView.rightAxis.enabled = false
-        chartView.leftAxis.labelPosition = .OutsideChart
-        chartView.xAxis.avoidFirstLastClippingEnabled = false
+//        chartView.leftAxis.zeroLineColor = UIColor.blueColor()
+//        chartView.leftAxis.zeroLineWidth = 2
+//        chartView.rightAxis.enabled = false
+//        chartView.leftAxis.labelPosition = .OutsideChart
+//        chartView.xAxis.avoidFirstLastClippingEnabled = false
         
         chartView.animate(xAxisDuration: 4, easingOption: .EaseOutBounce)
         
