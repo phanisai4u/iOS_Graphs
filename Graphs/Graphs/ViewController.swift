@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var chartTypeTableView: UITableView!
-    var chartNames = ["LineGraph","PieGraph","DonutGraph","BarGraph","BubblecGraph","waterfallGraph"]
+    var chartNames = ["LineGraph","PieGraph","DonutGraph","BarGraph","BubblecGraph","CandelStickGraph"]
     override func viewDidLoad() {
         super.viewDidLoad()
     }

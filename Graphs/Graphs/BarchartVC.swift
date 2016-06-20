@@ -27,8 +27,11 @@ class BarchartVC: UIViewController {
         
         var dataEntries: [BarChartDataEntry] = []
         
-        for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
+        let dataEntry = BarChartDataEntry(values:[0,values[0]], xIndex: 0)
+        dataEntries.append(dataEntry)
+
+        for i in 1..<dataPoints.count {
+            let dataEntry = BarChartDataEntry(values:[values[i-1],values[i]], xIndex: i)
             dataEntries.append(dataEntry)
         }
         
@@ -36,13 +39,13 @@ class BarchartVC: UIViewController {
         
         let barChartDataSet = BarChartDataSet(yVals: dataEntries, label: "Units Sold")
         let barChartData = BarChartData(xVals: dataPoints, dataSet: barChartDataSet)
-        
+        barChartDataSet.colors = [ UIColor.clearColor(), UIColor.grayColor()]
        
         barView.xAxis.labelPosition = .Bottom
         barView.xAxis.labelRotationAngle = 45
         barView.xAxis.drawGridLinesEnabled = false
         barView.xAxis.drawAxisLineEnabled = false
-     
+        barView.drawValueAboveBarEnabled = true
         
         barView.xAxis.axisMaxValue = 300
         barView.leftAxis.drawGridLinesEnabled = false
