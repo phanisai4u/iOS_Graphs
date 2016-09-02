@@ -317,5 +317,49 @@
             </objects>
             <point key="canvasLocation" x="409" y="77"/>
         </scene>
+        <!--CombinechartVC-->
+        <scene sceneID="hi7-KE-iWd">
+            <objects>
+                <viewController storyboardIdentifier="CombinechartVC_ID" id="Fvh-On-o2n" customClass="CombinechartVC" customModule="Graphs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zk9-lA-jsp"/>
+                        <viewControllerLayoutGuide type="bottom" id="NSp-9b-NxU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PPC-Sy-UWh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UgJ-dc-Miy">
+                                <rect key="frame" x="40" y="40" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="CloseButtonClick:" destination="Fvh-On-o2n" eventType="touchUpInside" id="HCU-fy-L64"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwV-Ld-ubf" customClass="CombinedChartView" customModule="Charts">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="EtS-y8-KlE"/>
+                                    <constraint firstAttribute="height" constant="300" id="Rdf-Xo-hPB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UgJ-dc-Miy" firstAttribute="leading" secondItem="PPC-Sy-UWh" secondAttribute="leadingMargin" constant="20" id="I9O-fi-lT5"/>
+                            <constraint firstItem="VwV-Ld-ubf" firstAttribute="centerY" secondItem="PPC-Sy-UWh" secondAttribute="centerY" id="YUO-t6-Uao"/>
+                            <constraint firstItem="VwV-Ld-ubf" firstAttribute="centerX" secondItem="PPC-Sy-UWh" secondAttribute="centerX" id="e3Z-fO-kxZ"/>
+                            <constraint firstItem="UgJ-dc-Miy" firstAttribute="top" secondItem="zk9-lA-jsp" secondAttribute="bottom" constant="20" id="n8L-hj-0a0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="combineChartView" destination="VwV-Ld-ubf" id="OZY-Ko-io0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GNh-rF-Vf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-210" y="77"/>
+        </scene>
     </scenes>
 </document>

@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var chartTypeTableView: UITableView!
-    var chartNames = ["LineGraph","PieGraph","DonutGraph","BarGraph","BubblecGraph","CandelStickGraph"]
+    var chartNames = ["LineGraph","PieGraph","DonutGraph","BarGraph","BubblecGraph","CandelStickGraph","CombineGraph"]
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -53,6 +53,8 @@ extension ViewController : UITableViewDelegate{
              vc = self.storyboard?.instantiateViewControllerWithIdentifier("BarchartVC_ID") as! BarchartVC
         } else if indexPath.row == 4{
             vc = self.storyboard?.instantiateViewControllerWithIdentifier("BabbleChartVC_ID") as! BabbleChartVC
+        }else if indexPath.row == 6{
+            vc = self.storyboard?.instantiateViewControllerWithIdentifier("CombinechartVC_ID") as! CombinechartVC
         }else {
             vc = self.storyboard?.instantiateViewControllerWithIdentifier("WaterFallChartVC_ID") as! WaterFallChartVC
         }

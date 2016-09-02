@@ -47,7 +47,7 @@ class LineGraphVC: UIViewController {
         lineChartDataSet.fillAlpha = 1.0
         lineChartDataSet.drawFilledEnabled = true
         lineChartDataSet.lineWidth = 2.0
-        lineChartDataSet.axisDependency = .Left  
+        lineChartDataSet.axisDependency = .Left
     
        // lineChartDataSet.fillFormatter = ChartFillFormatter()
         
