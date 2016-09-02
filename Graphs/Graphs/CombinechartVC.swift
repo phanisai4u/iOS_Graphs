@@ -19,7 +19,7 @@ class CombinechartVC: UIViewController {
         super.viewDidLoad()
         
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-        let unitsSold = [20.0, 0.15, 6.0, 0.25, 12.0, 16.0]
+        let unitsSold = [10.0, 20, 30, 40, 50, 60]
         // combineChartView.delegate = self
         prepareChartView()
         setChart(months, yValuesLineChart: unitsSold, yValuesBarChart: unitsSold)
@@ -52,33 +52,65 @@ class CombinechartVC: UIViewController {
         combineChartView.noDataText = "Please provide data for the chart."
         
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
+        var yVals0 : [ChartDataEntry] = [ChartDataEntry]()
+
         var yVals2 : [BarChartDataEntry] = [BarChartDataEntry]()
         
         for i in 0..<xValues.count {
-            
+
             yVals1.append(ChartDataEntry(value: yValuesLineChart[i], xIndex: i))
-            yVals2.append(BarChartDataEntry(values:[4,10], xIndex: i))
+            yVals0.append(ChartDataEntry(value: yValuesLineChart[i]-30, xIndex: i))
+
             
         }
         
+        for i in 0 ..< 400{
+            if i > 5 && i < 20{
+            yVals2.append(BarChartDataEntry(value:-1.0, xIndex: i ))
+            
+            yVals2.append(BarChartDataEntry(value: Double(xValues.count+1), xIndex: i ))
+            }
+            if i > 30 && i < 45{
+                yVals2.append(BarChartDataEntry(value:-1.0, xIndex: i ))
+                
+                yVals2.append(BarChartDataEntry(value: Double(xValues.count+1), xIndex: i ))
+            }
+
+        }
+        
+        
+       
+        
         let lineChartSet = LineChartDataSet(yVals: yVals1, label: "Line Data")
+        let lineChartSet1 = LineChartDataSet(yVals: yVals0, label: "Line Data")
+
         let barChartSet: BarChartDataSet = BarChartDataSet(yVals: yVals2, label: "Bar Data")
         barChartSet.barSpace = 0
-        barChartSet.colors = [UIColor.clearColor(), UIColor.blueColor().colorWithAlphaComponent(0.5)]
-        barChartSet.barShadowColor = UIColor.clearColor()
+        barChartSet.axisDependency = .Left
+    
+        barChartSet.colors = [UIColor.blueColor()]
+        barChartSet.barShadowColor = UIColor.blueColor()
         barChartSet.highlightAlpha = 0
+        
+      
 
         
         
         let data: CombinedChartData = CombinedChartData(xVals: xValues)
     
-        data.lineData = LineChartData(xVals: xValues, dataSets: [lineChartSet])
-        let bardata = BarChartData(xVals: xValues, dataSets: [barChartSet])
-        bardata.setDrawValues(false)
-        
+       var barxvals = [String]()
+        for i in 0..<400{
+            barxvals.append("")
+        }
+    
+        let bardata = BarChartData(xVals: barxvals , dataSets: [barChartSet])
+       // bardata.setDrawValues(false)
+        data.lineData = LineChartData(xVals: xValues, dataSets: [lineChartSet,lineChartSet1])
+
         data.barData = bardata
 
         combineChartView.data = data
+        
         
     }
 

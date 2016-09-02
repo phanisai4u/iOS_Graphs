@@ -57,7 +57,7 @@ public class CombinedChartRenderer: ChartDataRendererBase
             case .Bar:
                 if (chart.barData !== nil)
                 {
-                    _renderers.append(BarChartRenderer(dataProvider: chart, animator: animator, viewPortHandler: viewPortHandler))
+                    _renderers.append(HorizontalBarChartRenderer(dataProvider: chart, animator: animator, viewPortHandler: viewPortHandler))
                 }
                 break
                 

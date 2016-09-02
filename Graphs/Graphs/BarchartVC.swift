@@ -12,7 +12,7 @@ import Charts
 class BarchartVC: UIViewController {
     
     @IBOutlet weak var barView: BarChartView!
-
+    var horbar :HorizontalBarChartView?
     override func viewDidLoad() {
         super.viewDidLoad()
 
