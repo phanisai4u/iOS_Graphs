@@ -21,10 +21,32 @@ class CombinechartVC: UIViewController {
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
         let unitsSold = [20.0, 0.15, 6.0, 0.25, 12.0, 16.0]
         // combineChartView.delegate = self
+        prepareChartView()
         setChart(months, yValuesLineChart: unitsSold, yValuesBarChart: unitsSold)
        // setChart(months, values: unitsSold)
     }
-    
+    func prepareChartView()  {
+        combineChartView.xAxis.labelPosition = .Bottom
+        combineChartView.xAxis.labelTextColor = UIColor.blueColor()
+        
+        combineChartView.xAxis.drawGridLinesEnabled = false
+        combineChartView.xAxis.drawAxisLineEnabled = false
+        combineChartView.xAxis.spaceBetweenLabels = 0
+        combineChartView.xAxis.spaceBetweenLabels = 0
+        combineChartView.xAxis.avoidFirstLastClippingEnabled = false
+        
+        combineChartView.leftAxis.drawGridLinesEnabled = true
+        combineChartView.leftAxis.zeroLineColor = UIColor.blueColor()
+        combineChartView.leftAxis.gridColor = UIColor.yellowColor()
+        combineChartView.leftAxis.zeroLineWidth = 2
+        combineChartView.rightAxis.enabled = false
+        combineChartView.leftAxis.labelPosition = .OutsideChart
+        combineChartView.leftAxis.labelTextColor = UIColor.redColor()
+        //combineChartView.leftAxis.labelFont = UIFont.latoRegularFontOfSize(14)
+        combineChartView.setScaleEnabled(false)
+        combineChartView.animate(xAxisDuration: 4, easingOption: .EaseInOutSine)
+        
+    }
     
     func setChart(xValues: [String], yValuesLineChart: [Double], yValuesBarChart: [Double]) {
         combineChartView.noDataText = "Please provide data for the chart."
@@ -35,18 +57,27 @@ class CombinechartVC: UIViewController {
         for i in 0..<xValues.count {
             
             yVals1.append(ChartDataEntry(value: yValuesLineChart[i], xIndex: i))
-            yVals2.append(BarChartDataEntry(value: yValuesBarChart[i] - 1, xIndex: i))
+            yVals2.append(BarChartDataEntry(values:[4,10], xIndex: i))
             
         }
         
         let lineChartSet = LineChartDataSet(yVals: yVals1, label: "Line Data")
         let barChartSet: BarChartDataSet = BarChartDataSet(yVals: yVals2, label: "Bar Data")
+        barChartSet.barSpace = 0
+        barChartSet.colors = [UIColor.clearColor(), UIColor.blueColor().colorWithAlphaComponent(0.5)]
+        barChartSet.barShadowColor = UIColor.clearColor()
+        barChartSet.highlightAlpha = 0
+
         
         
         let data: CombinedChartData = CombinedChartData(xVals: xValues)
-        data.barData = BarChartData(xVals: xValues, dataSets: [barChartSet])
+    
         data.lineData = LineChartData(xVals: xValues, dataSets: [lineChartSet])
+        let bardata = BarChartData(xVals: xValues, dataSets: [barChartSet])
+        bardata.setDrawValues(false)
         
+        data.barData = bardata
+
         combineChartView.data = data
         
     }
